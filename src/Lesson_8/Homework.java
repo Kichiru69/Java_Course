@@ -21,6 +21,7 @@ public class Homework {
   static int multi(int a, int b, int c) {
     return a * b * c;
   }
+
   static void division(int a, int b) {
     System.out.println("division " + a / b);
   }
