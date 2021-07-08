@@ -1,11 +1,9 @@
 package Lesson_13;
 
 public class Month {
-  static int month;
 
-  public static void main(String[] args) {
-    month = 13;
-    switch (month) {
+  static void month(int i) {
+    switch (i) {
       case 1:
       case 5:
       case 7:
@@ -27,5 +25,10 @@ public class Month {
       default:
         System.out.println("Нет такого месяца");
     }
+  }
+}
+class MonthTest {
+  public static void main(String[] args) {
+    Month.month(5);
   }
 }

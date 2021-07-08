@@ -1,7 +1,5 @@
 package Lesson_12;
 
-import java.util.Objects;
-
 public class Student {
   String name;
   int course;
