@@ -15,11 +15,11 @@ public class Test1 {
       aL.add(s);
     }
     Collections.sort(aL);
-    System.out.println(aL.toString());
+    System.out.println(aL);
   }
 
   public static void main(String[] args) {
     String s = "Privet";
-    abc("Privet", "Privet", "poka", "Cho kak", "?", "?", s, "Aaaa", "B");
+    abc("1", "Privet", "Privet", "poka", "Cho kak", "?", "?", s, "Aaaa", "B", "90");
   }
 }
