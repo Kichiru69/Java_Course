@@ -6,13 +6,10 @@ import java.util.Collections;
 public class Test1 {
   static void abc(String ... st) {
     ArrayList<String> aL = new ArrayList<>();
-   OUTER: for (String s:st) {
-     for (String value : aL) {
-       if (value.equals(s)) {
-         continue OUTER;
-       }
+     for (String s:st) {
+     if (!aL.contains(s)) {
+       aL.add(s);
      }
-      aL.add(s);
     }
     Collections.sort(aL);
     System.out.println(aL);
