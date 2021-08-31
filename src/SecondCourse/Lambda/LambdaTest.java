@@ -1,15 +1,23 @@
 package SecondCourse.Lambda;
 
 import SecondCourse.Collections.AnimeCharacters;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
-public class Lambda {
-  static void characterCheck(ArrayList<AnimeCharacters> al, Filter f) {
-    for (AnimeCharacters a: al) {
-      if (f.check(a)) {
-        System.out.println(a);
+import java.util.ArrayList;
+
+public class LambdaTest {
+  static int i = 0;
+
+  static void print(ArrayList<AnimeCharacters> al, Filter2 f) {
+    for (AnimeCharacters a : al) {
+      if (f.test(a)) {
+        System.out.println(a.getName());
+      }
+    }
+  }
+  static void printSome(ArrayList<AnimeCharacters> al, Filter3 f) {
+    for (AnimeCharacters a : al) {
+      if (f.test(a, i) >= 8) {
+        System.out.println(a.getName() + " is powerful");
       }
     }
   }
@@ -26,20 +34,20 @@ public class Lambda {
     al.add(ac3);
     al.add(ac4);
     al.add(ac5);
-    characterCheck(al, a -> a.getPower() < 8);
-    System.out.println("_____________________________");
-    characterCheck(al, (AnimeCharacters a) -> a.getFandom().equals("Boku no hero Academia") && a.getName().equals("Shoto"));
-    System.out.println("_____________________________");
-
-    characterCheck(al, new Filter() {
-      @Override
-      public boolean check(AnimeCharacters ac) {
-        return ac.getPower() < 8;
-      }
+    al.sort((a,b) -> a.getPower() - b.getPower());
+    i = 5;
+    print(al, c -> c.getFandom().equals("Kimitsu no Yaiba"));
+    printSome(al, (v,i) -> {
+      i = 1;
+      return v.getPower() * i;
     });
+
   }
 }
 
-interface Filter {
-  boolean check(AnimeCharacters ac);
+interface Filter2 {
+  boolean test(AnimeCharacters ac);
+}
+interface Filter3 {
+  int test(AnimeCharacters ac, int a);
 }
